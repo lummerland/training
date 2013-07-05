@@ -38,6 +38,7 @@ public class RussischeBauernMultiplikation {
   public void testMultiplikation() {
     assertEquals(1, multipliziere(1, 1));
     assertEquals(357, multipliziere(17, 21));
+    assertEquals(513, multipliziere(27, 19));
   }
 
   public int multipliziere(int x, int y) {
@@ -48,7 +49,7 @@ public class RussischeBauernMultiplikation {
 
     while (x >= 2) {
       if (x % 2 != 0) {
-        x = (x - 1) / 2; // abrunden bei Rest 1
+        x = (x - 1) / 2;
       }
       else {
         x = x / 2;
@@ -57,7 +58,6 @@ public class RussischeBauernMultiplikation {
       gemerkteZahlen.put(x, y);
     }
     for (int key : gemerkteZahlen.keySet()) {
-      System.out.println(key + ", " + gemerkteZahlen.get(key));
       if (key % 2 != 1) {
         continue;
       }
