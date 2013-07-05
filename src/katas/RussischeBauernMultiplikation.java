@@ -1,9 +1,9 @@
-package rbm;
+package katas;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class rbm {
+public class RussischeBauernMultiplikation {
 
 /*
  *  http://de.scribd.com/doc/148300789/Function-Kata-Russische-Bauernmultiplikation
@@ -32,7 +32,7 @@ public class rbm {
  */
 	
 	@Test
-	public void testMultiplication() {
+	public void testMultiplikation() {
     assertEquals(1, 1);
 	}
 
