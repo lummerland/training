@@ -50,7 +50,7 @@ public class RussischeBauernMultiplikation {
       return x * y;
     }
     else {
-      while (x >= 1) {
+      while (x >= 2) {
         if (x % 2 != 0) {
           x = (x - 1) / 2; // abrunden bei Rest 1
         }
@@ -61,6 +61,7 @@ public class RussischeBauernMultiplikation {
         gemerkteZahlen.put(x, y);
       }
       for (int key : gemerkteZahlen.keySet()) {
+        System.out.println(key + ", " + gemerkteZahlen.get(key));
         if (key % 2 != 1) {
           continue;
         }
