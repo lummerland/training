@@ -37,7 +37,7 @@ public class RussischeBauernMultiplikation {
   @Test
 	public void testMultiplikation() {
     assertEquals(1, multipliziere(1, 1));
-    assertEquals(336, multipliziere(17, 21));
+    assertEquals(357, multipliziere(17, 21));
 	}
 
   public int multipliziere(int x, int y) {
