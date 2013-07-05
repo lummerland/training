@@ -31,12 +31,18 @@ public class RussischeBauernMultiplikation {
  *   1932
  */
 	
-	@Test
+  // Integrationstest
+  @Test
 	public void testMultiplikation() {
     assertEquals(1, multipliziere(1, 1));
 	}
 
   public int multipliziere(int x, int y) {
+    // halbiere Zahl
+    // verdopple Zahl
+    // merke Zahlen
+    // streiche gerade Zahlenpaare
+    // addiere Zahlen
     return 1;
   }
 
