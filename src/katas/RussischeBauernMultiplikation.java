@@ -39,6 +39,7 @@ public class RussischeBauernMultiplikation {
     assertEquals(1, multipliziereNachRussischerBauernart(1, 1));
     assertEquals(357, multipliziereNachRussischerBauernart(17, 21));
     assertEquals(513, multipliziereNachRussischerBauernart(27, 19));
+    assertEquals(25704, multipliziereNachRussischerBauernart(714, 36));
   }
 
   public int multipliziereNachRussischerBauernart(int x, int y) {
