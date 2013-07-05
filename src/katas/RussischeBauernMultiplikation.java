@@ -61,7 +61,7 @@ public class RussischeBauernMultiplikation {
         gemerkteZahlen.put(x, y);
       }
       for (int key : gemerkteZahlen.keySet()) {
-        if (key % 2 != 0) {
+        if (key % 2 != 1) {
           continue;
         }
         ergebnis += gemerkteZahlen.get(key);
