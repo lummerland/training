@@ -36,32 +36,33 @@ public class RussischeBauernMultiplikation {
   // Integrationstest
   @Test
   public void testMultiplikation() {
-    assertEquals(1, multipliziere(1, 1));
-    assertEquals(357, multipliziere(17, 21));
-    assertEquals(513, multipliziere(27, 19));
+    assertEquals(1, multipliziereNachRussischerBauernart(1, 1));
+    assertEquals(357, multipliziereNachRussischerBauernart(17, 21));
+    assertEquals(513, multipliziereNachRussischerBauernart(27, 19));
   }
 
-  public int multipliziere(int x, int y) {
+  public int multipliziereNachRussischerBauernart(int x, int y) {
 
     final HashMap<Integer, Integer> gemerkteZahlen = new HashMap<Integer, Integer>();
-    int ergebnis = 0;
     gemerkteZahlen.put(x, y);
 
     while (x >= 2) {
-      if (x % 2 != 0) {
-        x = (x - 1) / 2;
-      }
-      else {
-        x = x / 2;
-      }
+      x = halbiere(x);
       y = y * 2;
       gemerkteZahlen.put(x, y);
     }
+    return ermittleErgebnis(gemerkteZahlen);
+  }
+
+  private int halbiere(final int x) {
+    final int zahl = (x % 2 != 0) ? x - 1 : x;
+    return zahl / 2;
+  }
+
+  private int ermittleErgebnis(final HashMap<Integer, Integer> gemerkteZahlen) {
+    int ergebnis = 0;
     for (int key : gemerkteZahlen.keySet()) {
-      if (key % 2 != 1) {
-        continue;
-      }
-      ergebnis += gemerkteZahlen.get(key);
+      ergebnis = (key % 2 != 0) ? ergebnis += gemerkteZahlen.get(key) : ergebnis;
     }
     return ergebnis;
   }
