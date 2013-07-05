@@ -52,7 +52,7 @@ public class RussischeBauernMultiplikation {
     else {
       while (x >= 1) {
         if (x % 2 != 0) {
-          x = (x / 2) - 1; // abrunden bei Rest 1
+          x = (x - 1) / 2; // abrunden bei Rest 1
         }
         else {
           x = x / 2;
