@@ -1,6 +1,8 @@
 package katas;
 
 import static org.junit.Assert.*;
+
+import java.util.HashMap;
 import org.junit.Test;
 
 public class RussischeBauernMultiplikation {
@@ -39,17 +41,33 @@ public class RussischeBauernMultiplikation {
 	}
 
   public int multipliziere(int x, int y) {
+
+    final HashMap<Integer, Integer> gemerkteZahlen = new HashMap<Integer, Integer>();
+    int ergebnis = 0;
+    gemerkteZahlen.put(x, y);
+
     if (x == 1 && y == 1) {
       return x * y;
     }
     else {
-      return 336;
+      while (x >= 1) {
+        if (x % 2 != 0) {
+          x = (x / 2) - 1; // abrunden bei Rest 1
+        }
+        else {
+          x = x / 2;
+        }
+        y = y * 2;
+        gemerkteZahlen.put(x, y);
+      }
+      for (int key : gemerkteZahlen.keySet()) {
+        if (key % 2 != 0) {
+          continue;
+        }
+        ergebnis += gemerkteZahlen.get(key);
+      }
+      return ergebnis;
     }
-    // halbiere Zahl
-    // verdopple Zahl
-    // merke Zahlen
-    // streiche gerade Zahlenpaare
-    // addiere Zahlen
   }
 
 }
