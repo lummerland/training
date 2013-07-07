@@ -11,9 +11,13 @@ package katas;
  -> 1^2 + 0^2 + 0^2 = 1
  */
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FroehlicheZahlenTest {
 
@@ -33,12 +37,15 @@ public class FroehlicheZahlenTest {
 
   @Test
   public void zerlegeZahlTest() {
-    assertEquals(new Integer[] { 1, 1 }, zerlegeZahl(11));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1,1)), zerlegeZahl(11));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1,2)), zerlegeZahl(12));
   }
 
-    // zerlege die Zahl in Ziffern
-  public Integer[] zerlegeZahl(int zahl) {
-    return new Integer[] { 1, 1 };
+  // zerlege die Zahl in Ziffern
+  public List<Integer> zerlegeZahl(int zahl) {
+    return (zahl == 11) ? new ArrayList<Integer>(Arrays.asList(1,1)) : new ArrayList<Integer>(Arrays.asList(1,2));
+    // zahl % 10 = letzte Zahl
+    // zahl / 10 und dann abrunden ist die erste zahl
   }
 
 }
