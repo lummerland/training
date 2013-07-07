@@ -13,11 +13,12 @@ package katas;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import org.junit.Test;
 
 public class FroehlicheZahlenTest {
 
@@ -26,9 +27,11 @@ public class FroehlicheZahlenTest {
     assertEquals(true, istFroehlicheZahl(1));
   }
 
-  // Integrationstest
+  // >>> Integrationstest
   public boolean istFroehlicheZahl(int zahl) {
     return (zahl == 1) ? true : false;
+    // Einzel-Probleme:
+    // zerlege die Zahl in Ziffern
     // quadriere jede Ziffer
     // summiere die Quadrate
     // entscheide, ob die Zahl wieder zerlegt werden kann oder
@@ -37,15 +40,19 @@ public class FroehlicheZahlenTest {
 
   @Test
   public void zerlegeZahlTest() {
-    assertEquals(new ArrayList<Integer>(Arrays.asList(1,1)), zerlegeZahl(11));
-    assertEquals(new ArrayList<Integer>(Arrays.asList(1,2)), zerlegeZahl(12));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1, 1)), zerlegeZahl(11));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1, 2)), zerlegeZahl(12));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1, 2, 6, 8)), zerlegeZahl(1268));
   }
 
-  // zerlege die Zahl in Ziffern
   public List<Integer> zerlegeZahl(int zahl) {
-    return (zahl == 11) ? new ArrayList<Integer>(Arrays.asList(1,1)) : new ArrayList<Integer>(Arrays.asList(1,2));
-    // zahl % 10 = letzte Zahl
-    // zahl / 10 und dann abrunden ist die erste zahl
+    final List<Integer> ziffern = new ArrayList<Integer>();
+    while (zahl > 0) {
+      ziffern.add(zahl % 10);
+      zahl = (zahl / 10);
+    }
+    Collections.reverse(ziffern);
+    return ziffern;
   }
 
 }
