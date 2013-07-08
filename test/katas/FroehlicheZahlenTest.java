@@ -59,14 +59,15 @@ public class FroehlicheZahlenTest {
   public void quadriereZiffernTest() {
     assertEquals(new ArrayList<Integer>(Arrays.asList(1, 4)), quadriereZiffern(Arrays.asList(1, 2)));
     assertEquals(new ArrayList<Integer>(Arrays.asList(25, 144)), quadriereZiffern(Arrays.asList(5, 12)));
+    assertEquals(new ArrayList<Integer>(Arrays.asList(9, 4, 100, 144)), quadriereZiffern(Arrays.asList(3, 2, 10, 12)));
   }
 
   public List<Integer> quadriereZiffern(List<Integer> ziffern) {
-    List<Integer> quadrierteZiffern = new ArrayList<Integer>();
-    for (Integer ziffer : ziffern) {
-      quadrierteZiffern.add(ziffer * ziffer);
+    final int menge = ziffern.size();
+    for (int i = 0; i < menge; i++) {
+      ziffern.set(i, ziffern.get(i) * ziffern.get(i));
     }
-    return quadrierteZiffern;
+    return ziffern;
   }
 
 }
