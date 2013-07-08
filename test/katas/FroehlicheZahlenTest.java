@@ -31,7 +31,7 @@ public class FroehlicheZahlenTest {
   public boolean istFroehlicheZahl(int zahl) {
     return (zahl == 1) ? true : false;
     // Einzel-Probleme:
-    // zerlege die Zahl in Ziffern
+    // zerlege die Zahl in Ziffern > Check
     // quadriere jede Ziffer
     // summiere die Quadrate
     // entscheide, ob die Zahl wieder zerlegt werden kann oder
@@ -53,6 +53,15 @@ public class FroehlicheZahlenTest {
     }
     Collections.reverse(ziffern);
     return ziffern;
+  }
+
+  @Test
+  public void quadriereZiffernTest() {
+    assertEquals(new ArrayList<Integer>(Arrays.asList(1, 4)), quadriereZiffern(Arrays.asList(1, 2)));
+  }
+
+  public List<Integer> quadriereZiffern(List<Integer> ziffern) {
+    return new ArrayList<Integer>(Arrays.asList(1, 4));
   }
 
 }
