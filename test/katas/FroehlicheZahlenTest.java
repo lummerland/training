@@ -56,18 +56,19 @@ public class FroehlicheZahlenTest {
   }
 
   @Test
-  public void quadriereZiffernTest() {
-    assertEquals(new ArrayList<Integer>(Arrays.asList(1, 4)), quadriereZiffern(Arrays.asList(1, 2)));
-    assertEquals(new ArrayList<Integer>(Arrays.asList(25, 144)), quadriereZiffern(Arrays.asList(5, 12)));
-    assertEquals(new ArrayList<Integer>(Arrays.asList(9, 4, 100, 144)), quadriereZiffern(Arrays.asList(3, 2, 10, 12)));
+  public void quadriereZiffernUndBildeSummeTest() {
+    assertEquals(5, quadriereZiffernUndBildeSumme(Arrays.asList(1, 2)));
+    assertEquals(169, quadriereZiffernUndBildeSumme(Arrays.asList(5, 12)));
+    assertEquals(257, quadriereZiffernUndBildeSumme(Arrays.asList(3, 2, 10, 12)));
   }
 
-  public List<Integer> quadriereZiffern(List<Integer> ziffern) {
+  public int quadriereZiffernUndBildeSumme(List<Integer> ziffern) {
     final int menge = ziffern.size();
+    int summe = 0;
     for (int i = 0; i < menge; i++) {
-      ziffern.set(i, ziffern.get(i) * ziffern.get(i));
+      summe += (ziffern.get(i) * ziffern.get(i));
     }
-    return ziffern;
+    return summe;
   }
 
 }
