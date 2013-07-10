@@ -71,4 +71,15 @@ public class FroehlicheZahlenTest {
     return summe;
   }
 
+  @Test
+  public void istZahlZerlegbarTest() {
+    assertEquals(true, istZahlZerlegbar(11));
+    assertEquals(false, istZahlZerlegbar(1));
+    assertEquals(true, istZahlZerlegbar(988989));
+  }
+
+  private boolean istZahlZerlegbar(int zahl) {
+    return String.valueOf(zahl).length() > 1;
+  }
+
 }
