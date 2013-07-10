@@ -25,17 +25,18 @@ public class FroehlicheZahlenTest {
   @Test
   public void testIstFroehlicheZahl() {
     assertEquals(true, istFroehlicheZahl(1));
+    assertEquals(false, istFroehlicheZahl(18));
+    assertEquals(true, istFroehlicheZahl(19));
   }
 
   // >>> Integrationstest
   public boolean istFroehlicheZahl(int zahl) {
-    return (zahl == 1) ? true : false;
-    // Einzel-Probleme:
-    // zerlege die Zahl in Ziffern > Check
-    // quadriere jede Ziffer
-    // summiere die Quadrate
-    // entscheide, ob die Zahl wieder zerlegt werden kann oder
-    // entscheide, ob die Summe das Kriterium fröhliche Zahl erfüllt
+    int moeglicheFroehlicheZahl = zahl;
+    while (istZahlZerlegbar(moeglicheFroehlicheZahl)) {
+      final List<Integer> ziffern = zerlegeZahl(moeglicheFroehlicheZahl);
+      moeglicheFroehlicheZahl = quadriereZiffernUndBildeSumme(ziffern);
+    }
+    return (moeglicheFroehlicheZahl == 1) ? true : false;
   }
 
   @Test
@@ -78,7 +79,7 @@ public class FroehlicheZahlenTest {
     assertEquals(true, istZahlZerlegbar(988989));
   }
 
-  private boolean istZahlZerlegbar(int zahl) {
+  public boolean istZahlZerlegbar(int zahl) {
     return String.valueOf(zahl).length() > 1;
   }
 
