@@ -25,11 +25,8 @@ public class ROT13Test {
   }
 
   public String verschluessel(String text) {
-    if (text.equals("a")) {
-      return "N";
-    }
-    else {
-      return "NO";
-    }
+    String aReplaced = text.replace("a", "N");
+    String bReplaced = aReplaced.replace("b", "O");
+    return bReplaced;
   }
 }
