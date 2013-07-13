@@ -20,10 +20,16 @@ public class ROT13Test {
 
   @Test
   public void verschluesselTest() {
-    assertEquals("M", verschluessel("a"));
+    assertEquals("N", verschluessel("a"));
+    assertEquals("NO", verschluessel("ab"));
   }
 
   public String verschluessel(String text) {
-    return "M";
+    if (text.equals("a")) {
+      return "N";
+    }
+    else {
+      return "NO";
+    }
   }
 }
