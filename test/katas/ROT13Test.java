@@ -14,7 +14,9 @@ package katas;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -24,17 +26,26 @@ public class ROT13Test {
   public void verschluesselTest() {
     assertEquals("N", verschluessel("a"));
     assertEquals("NO", verschluessel("ab"));
+    assertEquals("IREFPUYUEFFRYA", verschluessel("Verschlüsseln"));
   }
 
   public String verschluessel(String text) {
-    final HashMap<String, String> zuordnungen = new HashMap<String, String>();
-    zuordnungen.put("a", "n");
-    zuordnungen.put("b", "o");
+
+    final List<String> original = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+        "w", "x", "y", "z", "ä", "ö", "ü", "ß");
+    final List<String> ersatz = Arrays.asList("n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i",
+        "j", "k", "l", "m", "ae", "oe", "ue", "ss");
+
     String ergebnis = text;
-    for (String buchstabe : zuordnungen.keySet()) {
-      ergebnis = text.replace(buchstabe, zuordnungen.get(buchstabe).toUpperCase());
+    final Iterator<String> iterator = original.iterator();
+    while (iterator.hasNext()) {
+      String buchstabe = iterator.next();
+      System.out.println("Buchstabe: " + buchstabe);
+      System.out.println("Ergebnis 1: " + ergebnis);
+      ergebnis = text.replace(buchstabe, ersatz.get(original.indexOf(buchstabe)));
+      System.out.println("Ergebnis 2: " + ergebnis);
       text = ergebnis;
     }
-    return ergebnis;
+    return ergebnis.toUpperCase();
   }
 }
