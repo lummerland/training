@@ -14,6 +14,8 @@ package katas;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashMap;
+
 import org.junit.Test;
 
 public class ROT13Test {
@@ -25,8 +27,14 @@ public class ROT13Test {
   }
 
   public String verschluessel(String text) {
-    String aReplaced = text.replace("a", "N");
-    String bReplaced = aReplaced.replace("b", "O");
-    return bReplaced;
+    final HashMap<String, String> zuordnungen = new HashMap<String, String>();
+    zuordnungen.put("a", "n");
+    zuordnungen.put("b", "o");
+    String ergebnis = text;
+    for (String buchstabe : zuordnungen.keySet()) {
+      ergebnis = text.replace(buchstabe, zuordnungen.get(buchstabe).toUpperCase());
+      text = ergebnis;
+    }
+    return ergebnis;
   }
 }
