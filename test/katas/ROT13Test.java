@@ -21,9 +21,11 @@ public class ROT13Test {
   @Test
   public void verschluesselTest() {
     assertEquals("N", verschluessel("a"));
+    assertEquals("NO", verschluessel("ab"));
   }
 
   public String verschluessel(String text) {
-    return "N";
+    char[] buchstaben = text.toCharArray();
+    return (buchstaben.length == 1) ? "N" : "NO";
   }
 }
