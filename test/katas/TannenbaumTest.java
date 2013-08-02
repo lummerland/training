@@ -69,4 +69,22 @@ public class TannenbaumTest {
 		return 2 * (gesamt- reihe);
 	}
 
+	@Test
+	public void setzeReiheZusammenTest() {
+		assertThat(setzeReiheZusammen(1,5), Is.is("    x    "));
+		assertThat(setzeReiheZusammen(2,5), Is.is("   xxx   "));
+		assertThat(setzeReiheZusammen(5,5), Is.is("xxxxxxxxx"));
+	}
+
+	private String setzeReiheZusammen(final int reihe, final int gesamt) {
+		final StringBuffer ergebnis = new StringBuffer();
+		for (int i = 0; i < ermittleZuSetzendeLeerzeichen(reihe, gesamt); i++) {
+			ergebnis.append(" ");
+		}
+		for (int i = 0; i < ermittleZuSetzendeZeichen(reihe, gesamt); i++) {
+			ergebnis.insert(ermittleZuSetzendeLeerzeichen(reihe, gesamt)/2, "x");
+		}
+		return ergebnis.toString();
+	}
+
 }
