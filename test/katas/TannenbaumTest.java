@@ -58,4 +58,15 @@ public class TannenbaumTest {
 		return ( ( (gesamt * 2) - 1 ) - 2 * (gesamt - reihe) );
 	}
 
+	@Test
+	public void ermittleZuSetzendeLeerzeichenTest() {
+		assertThat(ermittleZuSetzendeLeerzeichen(1,5), Is.is(8));
+		assertThat(ermittleZuSetzendeLeerzeichen(4,5), Is.is(2));
+		assertThat(ermittleZuSetzendeLeerzeichen(5,5), Is.is(0));
+	}
+
+	private Integer ermittleZuSetzendeLeerzeichen(final int reihe, final int gesamt) {
+		return 2 * (gesamt- reihe);
+	}
+
 }
